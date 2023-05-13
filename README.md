@@ -1,4 +1,12 @@
-![License]("https://img.shields.io/github/license/Qu1nel/Algorithms..?color=g")
+<p align="center">
+  <img src="https://cdn.discordapp.com/attachments/1106162361628368896/1107030583693021275/welcome.png" alt="Welcome" />
+</p>
+
+<img src="https://img.shields.io/github/license/Qu1nel/Algorithms..?color=g" alt="License" />
+
+# Welcome
+
+This is another repository-collector of implementations of various algorithms. But this particular algorithm is special in that it stores the implementation in different programming languages, and the implementation of a particular algorithm is not one - there are several of them. Everything is also about data structures
 
 # About Algorithms..
 
