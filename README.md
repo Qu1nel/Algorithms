@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1106162361628368896/1107030583693021275/welcome.png" alt="Welcome" />
+  <img src="./.github/welcome.png" alt="Welcome" />
 </p>
 
 <img src="https://img.shields.io/github/license/Qu1nel/Algorithms..?color=g" alt="License" />
@@ -20,4 +20,3 @@ Implementation of Algorithms and data structures in various programming language
 
 This Project Qu1nel.Algorithms.. in distributive under the **[MIT License](./LICENSE)**, and it also uses those codes that are
 distributed under the **[MIT License](./LICENSE)**.
-
