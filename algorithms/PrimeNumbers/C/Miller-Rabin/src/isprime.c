@@ -1,3 +1,18 @@
+/*
+ * [Time-Complexity]: O(k * log^3(p))
+ *
+ * [Space-Complexity]: O(1)
+ *
+ *
+ * According to Rabin's theorem, the probability that a randomly chosen number a witnesses the simplicity of a
+ * composite number is approximately 1/4.
+ *
+ * Hence, if we check k random numbers a, the probability of accepting a composite number as prime is ~(1/4)^k.
+ *
+ * The complexity of the algorithm is O(k * log^3(p)), where k is the number of checks.
+ *
+ */
+
 #include "isprime.h"
 
 /*
