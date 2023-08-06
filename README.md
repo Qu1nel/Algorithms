@@ -17,9 +17,9 @@ Implementation of Algorithms and data structures in various programming language
 
 ## Implemented algorithms:
 
-1. [PrimeNumbers](#PrimeNumbers) - Various algorithms for working with simple numbers, such as checking or finding.
+1. [PrimeNumbers](#prime-numbers) - Various algorithms for working with simple numbers, such as checking or finding.
 
-<h3 id="PrimeNumbers">PrimeNumbers</h3>
+<h3 id="prime-numbers">PrimeNumbers</h3>
 
 [Show code](algorithms/PrimeNumbers/) <- Implementition on Python, C.
 
