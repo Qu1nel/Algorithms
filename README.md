@@ -2,7 +2,10 @@
   <img src="https://github.com/Qu1nel/Algorithms../blob/github/.github/welcome.png" alt="Welcome" />
 </p>
 
+<p>
 <img src="https://img.shields.io/github/license/Qu1nel/Algorithms..?color=g" alt="License" />
+<img src="https://img.shields.io/github/languages/count/Qu1nel/Algorithms..?color=purple" alt="Count of languages" />
+</p>
 
 # Welcome
 
@@ -28,6 +31,8 @@ Implementation of Algorithms and data structures in various programming language
 - [Qu1nel](https://github.com/Qu1nel/)
 
 ## License
+
+[MIT](./LICENSE) © [Ivan Kovach](https://github.com/Qu1nel/)
 
 This Project Qu1nel.Algorithms.. in distributive under the **[MIT License](./LICENSE)**, and it also uses those codes that are
 distributed under the **[MIT License](./LICENSE)**.
