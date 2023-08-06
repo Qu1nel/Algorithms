@@ -12,6 +12,17 @@ This is another repository-collector of implementations of various algorithms. B
 
 Implementation of Algorithms and data structures in various programming languages. As well as the implementation of trivial tasks in computer science!
 
+## Implemented algorithms:
+
+1. [PrimeNumbers](#PrimeNumbers) - Various algorithms for working with simple numbers, such as checking or finding.
+
+<h3 id="PrimeNumbers">PrimeNumbers</h3>
+
+[Show code](algorithms/PrimeNumbers/) <- Implementition on Python, C.
+
+1. Miller-Rabin - Probabilistic test for the primality of a prime number. O(k \* log^3(n))
+2. School-Method - Ordinary school algorithm for testing a number for simplicity. O(√n)
+
 # Developers
 
 - [Qu1nel](https://github.com/Qu1nel/)
