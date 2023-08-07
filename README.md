@@ -21,7 +21,7 @@ Implementation of Algorithms and data structures in various programming language
 
 <h3 id="prime-numbers">PrimeNumbers</h3>
 
-[Show code](algorithms/PrimeNumbers/) <- Implementition on Python, C.
+[Show code](algorithms/PrimeNumbers/) 🠐 Implementition on Python, C.
 
 1. Miller-Rabin - Probabilistic test for the primality of a prime number. O(k \* log^3(n))
 2. School-Method - Ordinary school algorithm for testing a number for simplicity. O(√n)
