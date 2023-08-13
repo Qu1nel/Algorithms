@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Qu1nel/Algorithms../blob/github/.github/welcome.png" alt="Welcome" />
+  <img src=".github/assets/welcome.png" alt="Welcome" />
 </p>
 
 <p>
