@@ -17,19 +17,16 @@ Implementation of Algorithms and data structures in various programming language
 
 ## Implemented algorithms:
 
-1. [PrimeNumbers](#prime-numbers) - Various algorithms for working with simple numbers, such as checking or finding.
-2. [Math](#math) - Algorithms based on mathematical models, concepts and simply another algorithms :3
+### PrimeNumbers
 
-<h3 id="prime-numbers">PrimeNumbers</h3>
-
-[Show code](algorithms/PrimeNumbers/) 🠐 Implementition on C, Python.
+[Show code](./algorithms/Math/PrimeNumbers) 🠐 Implementition on C, Python.
 
 1. **Miller-Rabin** - Probabilistic test for the primality of a prime number. $O\left(k \cdot log^3\left(n\right)\right)$
 2. **School-Method** - Ordinary school algorithm for testing a number for simplicity. $O\left(\sqrt{n}\right)$
 
-<h3 id="math">Math</h3>
+### FastPower
 
-[Show code](algorithm/Math) 🠐 Implementition on C.
+[Show code](./algorithms/Math/FastPower) 🠐 Implementition on C.
 
 1. **Fast-Power** - Fast degree algorithms (dichotomous degree algorithm, binary degree algorithm) are algorithms designed to raise a number `x` to a natural degree `n` in fewer multiplications than required in the degree definition. $O\left(\lfloor log_2\left(n\right)\rfloor\right)$
 

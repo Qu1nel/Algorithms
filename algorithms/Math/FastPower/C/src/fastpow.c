@@ -1,14 +1,21 @@
 /*
- * [Time-Complexity]: O()
+ * [Time-Complexity]: O(log2(n))
  *
- * [Space-Complexity]: O()
+ * [Space-Complexity]: O(1) for cycle
+ * [Space-Complexity]: O(n) for recursion
  *
- */
+ * An algorithm for rapid degree calculation a of b.
+ *
+ * */
+
 
 #include "fastpow.h"
 
 #include <stdio.h>
 
+/*
+ * Realization of fast power recursively.
+ */
 static double _fast_power_r(int64_t a, int64_t n)
 {
     if (n == 1) return (double)a;
@@ -19,6 +26,9 @@ static double _fast_power_r(int64_t a, int64_t n)
     }
 }
 
+/*
+ * Realization of fast power by cycle.
+ */
 static double _fast_power_c(int64_t a, int64_t n)
 {
     double result = 1;

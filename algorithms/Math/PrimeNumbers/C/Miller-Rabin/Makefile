@@ -15,4 +15,3 @@ re:  ## Rebuild library
 clean:  ## Remove all
 	rm -rf objects/isprime.o
 	rm -rf $(TARGET)
-

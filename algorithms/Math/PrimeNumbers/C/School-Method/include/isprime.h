@@ -1,5 +1,5 @@
-#ifndef PRIMENUMBERTEST_IS_PRIME_H
-#define PRIMENUMBERTEST_IS_PRIME_H
+#ifndef MATH_PRIME_NUMBERS_SCHOOL_METHOD_H
+#define MATH_PRIME_NUMBERS_SCHOOL_METHOD_H
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -13,4 +13,4 @@
  */
 extern bool is_prime(const uint64_t number);
 
-#endif
+#endif  // MATH_PRIME_NUMBERS_SCHOOL_METHOD_H
