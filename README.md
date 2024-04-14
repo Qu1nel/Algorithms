@@ -26,7 +26,7 @@ Implementation of Algorithms and data structures in various programming language
 
 ### FastPower
 
-[Show code](./algorithms/Math/FastPower) 🠐 Implementition on C.
+[Show code](./algorithms/Math/FastPower) 🠐 Implementition on C, Python.
 
 1. **Fast-Power** - Fast degree algorithms (dichotomous degree algorithm, binary degree algorithm) are algorithms designed to raise a number `x` to a natural degree `n` in fewer multiplications than required in the degree definition. $O\left(\lfloor log_2\left(n\right)\rfloor\right)$
 
