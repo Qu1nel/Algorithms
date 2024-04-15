@@ -30,6 +30,23 @@ Implementation of Algorithms and data structures in various programming language
 
 1. **Fast-Power** - Fast degree algorithms (dichotomous degree algorithm, binary degree algorithm) are algorithms designed to raise a number `x` to a natural degree `n` in fewer multiplications than required in the degree definition. $O\left(\lfloor log_2\left(n\right)\rfloor\right)$
 
+## Sortings
+
+0. **Merge**: $O\left(n + m\right)$ - [Show code](./algorithms/Sortings/Merge/) 🠐 Implementition on Python.
+1. **Bubble sort**: $O\left(n^2\right)$ - [Show code](./algorithms/Sortings/BubbleSort/) 🠐 Implementition on Python.
+2. **Shaker sort**: $O\left(n^2\right)$ - [Show code](./algorithms/Sortings/ShakerSort/) 🠐 Implementition on Python.
+3. **Selection sort**: $O\left(n^2\right)$ - [Show code](./algorithms/Sortings/SelectionSort/) 🠐 Implementition on Python.
+4. **Insert sort**: $O\left(n^2\right)$ - [Show code](./algorithms/Sortings/InsertSort/) 🠐 Implementition on Python.
+5. **Comb sort**: $O\left(n^2/P^2\right)$ - [Show code](./algorithms/Sortings/CombSort/) 🠐 Implementition on Python.
+6. **Merge sort**: $O\left(n \log_2{n}\right)$ - [Show code](./algorithms/Sortings/MergeSort/) 🠐 Implementition on Python.
+7. **Quick sort**: $O\left(n \log_2{n}\right)$ - [Show code](./algorithms/Sortings/QuickSort/) 🠐 Implementition on Python.
+8. **Heap sort**: $O\left(n \log_2{n}\right)$ - [Show code](./algorithms/Sortings/HeapSort/) 🠐 Implementition on Python. 
+
+## Search
+
+1. **Binary**: $O\left(\log_2{n}\right)$ - [Show code](./algorithms/Search/BinarySearch/) 🠐 Implementition on Python.
+2. **Jump to search**: $O\left(\sqrt{n}\right)$ - [Show code](./algorithms/Search/JumpSearch/) 🠐 Implementition on Python.
+
 # Developers
 
 - [Qu1nel](https://github.com/Qu1nel/)
