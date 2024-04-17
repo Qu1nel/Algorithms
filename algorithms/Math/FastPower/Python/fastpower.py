@@ -9,7 +9,7 @@ An algorithm for rapid degree calculation base of exp.
 """
 
 
-def fast_power(base: int, exp: int) -> int | float:
+def fast_power(base: int, exp: int, mod: None | int = None) -> int | float:
     """Fast power algorithm.
 
     Args:
@@ -35,6 +35,11 @@ def fast_power(base: int, exp: int) -> int | float:
         if exp % 2 == 1:
             result *= mult
         mult *= mult
+
+        if mod is not None:
+            result %= mod
+            mult %= mod
+
         exp //= 2
 
     if sign:
