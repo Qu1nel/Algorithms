@@ -34,7 +34,7 @@ def is_prime(number: int) -> bool:
     if number % 3 == 0 or number % 2 == 0:
         return False
 
-    for i in range(5, int(math.sqrt(number)), 6):
+    for i in range(5, int(math.sqrt(number)) + 1, 6):
         if number % i == 0 or number % (i + 2) == 0:
             return False
 
