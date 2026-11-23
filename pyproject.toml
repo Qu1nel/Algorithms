@@ -1,6 +1,6 @@
 [project]
 name = "algorithms"
-description = "Personal algorithm studies with proofs and tested Python and C implementations"
+description = "Personal algorithm studies with proofs and tested implementations"
 readme = "README.md"
 requires-python = ">=3.11"
 
