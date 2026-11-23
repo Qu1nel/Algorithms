@@ -7,9 +7,10 @@
 [![Algorithms CI](https://github.com/Qu1nel/Algorithms/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Qu1nel/Algorithms/actions/workflows/tests.yml?query=branch%3Amain)
 
 A personal study notebook by [@Qu1nel](https://github.com/Qu1nel) for algorithms,
-proofs, and complexity analysis. Each algorithm has a README with its problem,
-pseudocode, correctness argument and cost model. Implementations and tests live
-in language folders next to the explanation.
+proofs, and complexity analysis. The explanation of each algorithm stands on its
+own and covers the problem, pseudocode, correctness argument and cost model.
+Implementations and their tests live in language folders next to the explanation.
+Each algorithm can gain implementations in other languages over time.
 
 ## Search
 
@@ -36,8 +37,8 @@ in language folders next to the explanation.
 
 ## Run the checks
 
-Use Python 3.11 or newer and GCC with C17 support. Set `CC` to the compiler
-executable if you use another compiler.
+The current tests use Python 3.11 or newer and GCC with C17 support. Set `CC`
+to the compiler executable if you use another compiler.
 
 ```sh
 python tests/run_checks.py
