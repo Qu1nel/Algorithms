@@ -1,6 +1,6 @@
 [project]
-name = "Algorithms.."
-description = "Implementation of Algorithms and data structures in various programming languages. As well as the implementation of trivial tasks in computer science!"
+name = "algorithms"
+description = "Personal algorithm studies with proofs and tested Python and C implementations"
 readme = "README.md"
 requires-python = ">=3.11"
 
@@ -12,7 +12,7 @@ email = "eeiprex@gmail.com"
 file = "LICENSE"
 
 [project.urls]
-Repository = "https://github.com/Qu1nel/Algorithms../"
+Repository = "https://github.com/Qu1nel/Algorithms"
 
 
 [tool.ruff]
