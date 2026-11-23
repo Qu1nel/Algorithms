@@ -1,8 +1,8 @@
-"""Quick sort recursive.
+"""Randomized three-way quicksort with an explicit work stack.
 
 [Worst Time-Complexity]: O(n^2)
-[Best Time-Complexity]: O(n log2{n}) | O(n) - for three divisions
-[AVG Time-Complexity]: O(n log2{n})
+[Best Time-Complexity]: O(n) when all keys are equal
+[AVG Time-Complexity]: O(n log n) in expectation over pivot choices
 
 [Space-Complexity]: O(n)
 
@@ -14,33 +14,42 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
-def quick_sort(data: Sequence[T]) -> Sequence[T]:
-    """Quick sorting based on recursion.
+def quick_sort(data: Sequence[T]) -> list[T]:
+    """Sort a sequence by stable three-way partitioning.
 
     Args:
-        data: A some sequence of elemets type T.
+        data: A sequence of comparable elements.
 
     Returns:
-        Sorted given sequence.
+        A new sorted list. Equal keys retain their input order.
 
     """
-    n = len(data)
+    result: list[T] = []
+    pending = [(False, list(data))]
+    while pending:
+        ready, items = pending.pop()
+        if ready or len(items) < 2:
+            result.extend(items)
+            continue
 
-    if n <= 1:
-        return data
+        pivot = random.choice(items)
+        lower: list[T] = []
+        equal: list[T] = []
+        upper: list[T] = []
 
-    middle = data[random.randint(0, n - 1)]
+        for item in items:
+            if item < pivot:
+                lower.append(item)
+            elif pivot < item:
+                upper.append(item)
+            else:
+                equal.append(item)
 
-    center = []
-    lower = []
-    bigger = []
+        # A stack processes the lower partition before the equal and upper runs.
+        if upper:
+            pending.append((False, upper))
+        pending.append((True, equal))
+        if lower:
+            pending.append((False, lower))
 
-    for num in data:
-        if num == middle:
-            center.append(num)
-        elif num < middle:
-            lower.append(num)
-        else:
-            bigger.append(num)
-
-    return quick_sort(lower) + center + quick_sort(bigger)
+    return result

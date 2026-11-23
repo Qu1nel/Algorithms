@@ -1,31 +1,31 @@
-"""Jump to search.
+"""Jump search with binary search inside the selected block.
 
 [Time-Complexity]: O(sqrt(n))
 
 [Space-Complexity]: O(1)
 """
 from collections.abc import Sequence
-from math import sqrt
+from math import isqrt
 from typing import TypeVar
 
 T = TypeVar("T")
 
 
 def jump_search(items: Sequence[T], target: T) -> int:
-    """Jump to search.
+    """Find a target by jumping between blocks.
 
     Args:
-        items: A sorted sequence of elements.
-        target: Searching element in given sequence.
+        items: A nondecreasing sequence with constant-time indexing.
+        target: Element to find in the sequence.
 
     Returns:
-        Index of target in sequence, else -1.
+        Rightmost matching index in the first candidate block, or -1.
 
     """
     if not (n := len(items)):
         return -1
 
-    step = int(sqrt(n))
+    step = isqrt(n)
 
     left = right = 0
     is_found = False

@@ -4,7 +4,7 @@
 [Best Time-Complexity]: Omega(n log2{n})
 [AVG Time-Complexity]: Theta(n log2{n})
 
-[Space-Complexity]: O(n) | O(1) - linked list
+[Space-Complexity]: O(n) peak additional memory, including slices and result
 
 """
 from collections.abc import Sequence
@@ -13,41 +13,36 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
-def swap_in(items: Sequence[T], idx_1: int, idx_2: int) -> None:
-    """Swap elements 'idx_1' and 'idx_2' in 'items'."""
-    items[idx_1], items[idx_2] = items[idx_2], items[idx_1]
-
-
-def merge_sort(data: Sequence[T]) -> Sequence[T]:
+def merge_sort(data: Sequence[T]) -> list[T]:
     """Merge sorting.
 
     Args:
         data: A Sequence of element type T
 
     Returns:
-        Sorted given sequence.
+        A new sorted list. Equal keys retain their input order.
 
     """
-    if len(data) <= 1:
-        return data
+    def sort(items: list[T]) -> list[T]:
+        if len(items) <= 1:
+            return items
 
-    avg = len(data) // 2
+        mid = len(items) // 2
+        left = sort(items[:mid])
+        right = sort(items[mid:])
+        i = j = 0
+        result: list[T] = []
 
-    left = merge_sort(data[:avg])
-    right = merge_sort(data[avg:])
+        while i < len(left) and j < len(right):
+            if right[j] < left[i]:
+                result.append(right[j])
+                j += 1
+            else:
+                result.append(left[i])
+                i += 1
 
-    n, m = len(left), len(right)
-    i = k = 0
+        result.extend(left[i:])
+        result.extend(right[j:])
+        return result
 
-    result = []
-
-    while i < n and k < m:
-        if left[i] < right[k]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[k])
-            k += 1
-
-    result += left[i:] + right[k:]
-    return result
+    return sort(list(data))

@@ -1,6 +1,6 @@
 """Binary search.
 
-[Time-Complexity]: O(n log2{n})
+[Time-Complexity]: O(log n) with constant-time indexing
 
 [Space-Complexity]: O(1)
 """
@@ -14,11 +14,11 @@ def binary_search(items: Sequence[T], target: T) -> int:
     """Binary search.
 
     Args:
-        items: A sorted sequence of elements.
-        target: Searching element in given sequence.
+        items: A nondecreasing sequence with constant-time indexing.
+        target: Element to find in the sequence.
 
     Returns:
-        Index of target in sequence, else -1.
+        Rightmost index of target, or -1 if absent.
 
     """
     if not len(items):
