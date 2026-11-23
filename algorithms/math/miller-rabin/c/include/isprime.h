@@ -6,12 +6,10 @@
 #include <stdlib.h>
 
 /*
- * Probabilistic test of number for simplicity using the Miller-Rabin test
- *
- *      number - is the number to be tested.
- *
- *      k - Number of tests. The larger the number, the less likely it is that a composite number
- *          will be misidentified as a prime number. (1/4)^k
+ * Test a candidate with k Miller–Rabin rounds.
+ * False means composite, below 2, or an invalid round count (k = 0).
+ * True means the number passed every round. See the README for the
+ * error bound under independent uniform sampling.
  */
 extern bool is_prime(const uint64_t number, uint16_t k);
 

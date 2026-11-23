@@ -1,4 +1,4 @@
-"""School-Method primality test.
+"""Trial division using the 6k ± 1 candidates.
 
 [Time-Complexity]: O(√n)
 
@@ -12,29 +12,24 @@ import math
 
 
 def is_prime(number: int) -> bool:
-    """The function checks number for simplicity in time O(√n).
+    """Check whether an integer is prime.
 
     Checks number, whether n is divisible by 2 or 3, and then checks all numbers of the form 6k ± 1 <= √n
 
     Args:
-        number: is the number to be tested.
+        number: Integer to test.
 
     Returns:
-        True if the number is probably prime else False
-
-    Raises:
-        AssertionError: is number < 1
+        True if number is prime, otherwise False.
 
     """
-    assert number > 0, "Number < 1 not valid"
-
     if number <= 3:
         return number > 1
 
     if number % 3 == 0 or number % 2 == 0:
         return False
 
-    for i in range(5, int(math.sqrt(number)) + 1, 6):
+    for i in range(5, math.isqrt(number) + 1, 6):
         if number % i == 0 or number % (i + 2) == 0:
             return False
 

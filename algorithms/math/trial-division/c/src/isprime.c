@@ -22,7 +22,8 @@ extern bool is_prime(const uint64_t number)
     if (number <= 3) return number > 1;
     if (number % 2 == 0 || number % 3 == 0) return false;
 
-    for (register uint64_t i = 5; i * i <= number; i += 6) {
+    /* Compare without multiplying: i * i can overflow uint64_t. */
+    for (uint64_t i = 5; i <= number / i; i += 6) {
         if ((number % i == 0) || (number % (i + 2) == 0)) return false;
     }
     return true;

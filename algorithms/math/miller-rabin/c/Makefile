@@ -4,7 +4,7 @@ CFLAGS := -std=c17 -Wall -Wextra -Werror -Wshadow -Wvla -Walloca -Wundef -Wfloat
 
 all:  ## Build library
 	@mkdir -p objects
-	clang -c src/isprime.c -o objects/isprime.o -I include $(CFLAGS)
+	$(CC) -c src/isprime.c -o objects/isprime.o -I include $(CFLAGS)
 	ar -rcs $(TARGET) objects/isprime.o
 	ranlib $(TARGET)
 

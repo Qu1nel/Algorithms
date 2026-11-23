@@ -1,48 +1,49 @@
 """Fast power.
 
-[Time-Complexity]: O(log2(n))
+[Time-Complexity]: O(log |exp|) multiplications for nonzero exp
 
-[Space-Complexity]: O(1)
+[Space-Complexity]: O(1) integer variables; integer sizes depend on the result
 
 An algorithm for rapid degree calculation base of exp.
 
 """
 
 
-def fast_power(base: int, exp: int, mod: None | int = None) -> int | float:
+def fast_power(base: int, exp: int, mod: int | None = None) -> int | float:
     """Fast power algorithm.
 
     Args:
-        base: Base of degree.
-        exp: Degree.
+        base: Integer base.
+        exp: Integer exponent.
+        mod: Optional nonzero integer modulus.
 
     Raises:
-        AssertionError: if exp is float.
+        TypeError: If exp is not an integer.
+        ValueError: If mod is zero or a required modular inverse does not exist.
+        ZeroDivisionError: If zero is raised to a negative exponent without mod.
 
     Returns:
-        Result of multiple base in exp.
+        The power, its reciprocal for a negative exponent, or its modular residue.
 
     """
-    assert isinstance(exp, int)
+    if not isinstance(exp, int):
+        raise TypeError("exp must be an integer")
+    if mod == 0:
+        raise ValueError("mod must be nonzero")
+    if mod is not None:
+        base = pow(base, -1, mod) if exp < 0 else base % mod
 
-    sign = exp < 0
-    exp = abs(exp)
+    result = 1 if mod is None else 1 % mod
+    remaining = abs(exp)
+    while remaining:
+        if remaining & 1:
+            result *= base
+            if mod is not None:
+                result %= mod
+        remaining >>= 1
+        if remaining:
+            base *= base
+            if mod is not None:
+                base %= mod
 
-    result = 1
-    mult = base
-
-    while exp:
-        if exp % 2 == 1:
-            result *= mult
-        mult *= mult
-
-        if mod is not None:
-            result %= mod
-            mult %= mod
-
-        exp //= 2
-
-    if sign:
-        result = 1 / result
-
-    return result
+    return 1 / result if exp < 0 and mod is None else result

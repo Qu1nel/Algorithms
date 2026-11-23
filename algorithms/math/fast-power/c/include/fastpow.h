@@ -7,21 +7,16 @@
 #include <stdlib.h>
 
 /*
- * A recursive implementation of a fast algorithm for computing the degree b of a number a.
- *
- * Time O(log(n)).
- * Memory O(n)
- *
+ * Return a to the signed exponent n as a double.
+ * The recursive version uses O(log |n|) multiplications and stack frames.
+ * Zero raised to a negative exponent reports an error and exits.
  */
 extern double fast_power_r(int64_t a, int64_t n);
 
 
 /*
- * Realization of the algorithm of fast degree expansion on the basis of a loop to calculate the degree b of a number a.
- *
- * Time O(log(n)).
- * Memory O(n)
- *
+ * Return a to the signed exponent n using O(1) auxiliary space.
+ * The domain and error behavior match fast_power_r.
  */
 extern double fast_power_c(int64_t a, int64_t n);
 

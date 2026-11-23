@@ -1,81 +1,54 @@
 /*
- * [Time-Complexity]: O(log2(n))
+ * Fast power by repeated squaring.
  *
- * [Space-Complexity]: O(1) for cycle
- * [Space-Complexity]: O(n) for recursion
- *
- * An algorithm for rapid degree calculation a of b.
- *
- * */
-
+ * [Time-Complexity]: O(log |n|) multiplications for nonzero n
+ * [Space-Complexity]: O(1) iterative; O(log |n|) recursive
+ */
 
 #include "fastpow.h"
 
 #include <stdio.h>
 
-/*
- * Realization of fast power recursively.
- */
-static double _fast_power_r(int64_t a, int64_t n)
+static uint64_t exponent_magnitude(int64_t n)
 {
-    if (n == 1) return (double)a;
-    if (n % 2 == 0) {
-        return _fast_power_r(a * a, n / 2);
-    } else {
-        return (double)a * _fast_power_r(a * a, (n - 1) / 2);
-    }
+    /* Adding one before negation keeps INT64_MIN representable. */
+    return n < 0 ? (uint64_t)(-(n + 1)) + 1 : (uint64_t)n;
 }
 
-/*
- * Realization of fast power by cycle.
- */
-static double _fast_power_c(int64_t a, int64_t n)
+static double power_base(int64_t a, int64_t n)
 {
-    double result = 1;
-    double mult = (double)a;
+    if (a == 0 && n < 0) {
+        fprintf(stderr, "Zero cannot be raised to a negative exponent.\n");
+        exit(EXIT_FAILURE);
+    }
+    return n < 0 ? 1.0 / (double)a : (double)a;
+}
 
-    while (n != 0) {
-        if (n % 2 != 0) {
-            result *= mult;
-        }
-        mult *= mult;
-        n /= 2;
+static double power_recursive(double base, uint64_t n)
+{
+    if (n == 0) return 1.0;
+    if (n == 1) return base;
+
+    double half = power_recursive(base, n / 2);
+    double square = half * half;
+    return n % 2 == 0 ? square : base * square;
+}
+
+double fast_power_r(int64_t a, int64_t n)
+{
+    return power_recursive(power_base(a, n), exponent_magnitude(n));
+}
+
+double fast_power_c(int64_t a, int64_t n)
+{
+    double result = 1.0;
+    double base = power_base(a, n);
+    uint64_t remaining = exponent_magnitude(n);
+
+    while (remaining != 0) {
+        if (remaining % 2 != 0) result *= base;
+        remaining /= 2;
+        if (remaining != 0) base *= base;
     }
     return result;
-}
-
-extern double fast_power_r(int64_t a, int64_t n)
-{
-    if (a == 0 && n < 0) {
-        fprintf(stderr, "Math result not representable: base is %" PRId64 ", but exponent is %" PRId64 "\n", a, n);
-        exit(1);
-    } else if (a == 0 && n == 0) {
-        return 1;
-    }
-
-    bool sign;
-    if ((sign = n < 0)) {
-        n = -n;
-    }
-
-    double result = _fast_power_r(a, n);
-    return (sign) ? 1 / result : result;
-}
-
-extern double fast_power_c(int64_t a, int64_t n)
-{
-    if (a == 0 && n < 0) {
-        fprintf(stderr, "Math result not representable: base is %" PRId64 ", but exponent is %" PRId64 "\n", a, n);
-        exit(1);
-    } else if (a == 0 && n == 0) {
-        return 1;
-    }
-
-    bool sign;
-    if ((sign = n < 0)) {
-        n = -n;
-    }
-
-    double result = _fast_power_c(a, n);
-    return (sign) ? 1 / result : result;
 }

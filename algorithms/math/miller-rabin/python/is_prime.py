@@ -1,16 +1,12 @@
 """Miller-Rabin primality test.
 
-[Time-Complexity]: O(k * log^3(p))
+[Time-Complexity]: O(k log n) modular multiplications
 
-[Space-Complexity]: O(1)
+[Space-Complexity]: O(1) large integers; see README for the bit model
 
 
-According to Rabin's theorem, the probability that a randomly chosen number a witnesses the simplicity of a composite
-number is approximately 1/4.
-
-Hence, if we check k random numbers a, the probability of accepting a composite number as prime is ~(1/4)^k.
-
-The complexity of the algorithm is O(k * log^3(p)), where k is the number of checks.
+For odd composite n and independent uniform bases, at most one quarter of
+the bases are strong liars in each round.
 """
 
 import random
@@ -29,20 +25,21 @@ def miller_rabin_test(d: int, number: int) -> bool:
         True if the number is probably prime else False
 
     """
-    a = 2 + random.randint(1, number - 4)
+    a = random.randrange(2, number - 1)
     x = pow(a, d, number)
 
     if x in (1, number - 1):
         return True
 
-    while d != number - 1:
+    d *= 2
+    while d < number - 1:
         x = (x * x) % number
-        d *= 2
 
         if x == 1:
             return False
         if x == number - 1:
             return True
+        d *= 2
 
     return False
 
@@ -52,24 +49,28 @@ def is_prime(number: int, k: int) -> bool:
 
     Args:
         number: is the number to be tested.
-        k: number of tests. The larger the number, the less likely it is that a composite number
-            will be misidentified as a prime number. (1/4)^k
+        k: Positive number of independent random rounds for odd candidates.
+
+    Raises:
+        ValueError: If k is less than one.
 
     Returns:
         True if the number is probably prime else False
 
     """
-    if number < 2 or number == 4:
-        return False
+    if k < 1:
+        raise ValueError("k must be positive")
     if number <= 3:
-        return True
+        return number >= 2
+    if number % 2 == 0:
+        return False
 
     d = number - 1
     while d % 2 == 0:
         d //= 2
 
-    for _ in range(1, k):
-        if miller_rabin_test(d, number) is False:
+    for _ in range(k):
+        if not miller_rabin_test(d, number):
             return False
 
     return True
